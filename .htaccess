@@ -1,0 +1,112 @@
+
+
+DirectoryIndex index.php
+RewriteEngine On
+
+
+<FilesMatch ".(avi|mp3|mp4|flv|swf|wmv|png|css|gif|jpeg|jpg|rar|zip|xml|rss)$|^$">
+Order deny,allow
+Allow from all
+</FilesMatch> 
+
+# Основной домен
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Главная
+RewriteRule ^index.html$ index.php [L]
+
+
+# Правила
+RewriteRule ^rules(/?)+$ index.php?menu=rules [L]
+
+
+
+# Контакты
+RewriteRule ^contacts(/?)+$ index.php?menu=contacts [L]
+
+# авторизацм
+RewriteRule ^authorization(/?)+$ index.php?menu=authorization [L]
+
+RewriteRule ^chat(/?)+$ index.php?menu=chat [L] 
+
+RewriteRule ^top(/?)+$ index.php?menu=top [L] 
+RewriteRule ^faq(/?)+$ index.php?menu=faq [L] 
+# Новости
+RewriteRule ^news(/?)+$ index.php?menu=news [L]
+
+# О нас
+RewriteRule ^about(/?)+$ index.php?menu=about [L]
+
+# Регистрация
+RewriteRule ^signup/key/(.*)(/?)+$ index.php?menu=signup&key=$1 [L]
+RewriteRule ^signup(/?)+$ index.php?menu=signup [L]
+
+# Восстановление пароля
+RewriteRule ^recovery(/?)+$ index.php?menu=recovery [L]
+
+# Последние выплаты
+RewriteRule ^payments(/?)+$ index.php?menu=payments [L]
+
+# Помощь
+RewriteRule ^help(/?)+$ index.php?menu=help [L]
+
+#Ютуб
+RewriteRule ^youtube(/?)+$ index.php?menu=youtube [L]
+
+#Видео
+RewriteRule ^video(/?)+$ index.php?menu=video [L]
+
+# Чат
+RewriteRule ^square(/?)+$ index.php?menu=square [L]
+RewriteRule ^account/chat(/?)+$ index.php?menu=account&sel=chat [L]
+
+# Пользователи
+RewriteRule ^users/([0-9]+)(/?)+$ index.php?menu=users&page=$1 [L]
+RewriteRule ^users(/?)+$ index.php?menu=users [L]
+
+
+# Аккаунт
+RewriteRule ^account/lottery/winners(/?)+$ index.php?menu=account&sel=lottery&winners [L]
+RewriteRule ^account/lottery(/?)+$ index.php?menu=account&sel=lottery [L]
+RewriteRule ^account/pay_points(/?)+$ index.php?menu=account&sel=pay_points [L]
+RewriteRule ^account/set(/?)+$ index.php?menu=account&sel=set [L]
+RewriteRule ^account/bonus(/?)+$ index.php?menu=account&sel=bonus [L]
+RewriteRule ^account/bonus2(/?)+$ index.php?menu=account&sel=bonus2 [L]
+RewriteRule ^account/back(/?)+$ index.php?menu=account&sel=back [L]
+RewriteRule ^account/config(/?)+$ index.php?menu=account&sel=config [L]
+RewriteRule ^account/insert(/?)+$ index.php?menu=account&sel=insert [L]
+RewriteRule ^account/payment/([0-9]+)(/?)+$ index.php?menu=account&sel=payment&pay_id=$1 [L]
+RewriteRule ^invcompetition(/?)+$ index.php?menu=invcompetition [L]
+RewriteRule ^invcompetition/list(/?)+$ index.php?menu=invcompetition&list [L]
+RewriteRule ^account/payment(/?)+$ index.php?menu=account&sel=payment [L]
+RewriteRule ^account/market(/?)+$ index.php?menu=account&sel=market [L]
+RewriteRule ^account/swap(/?)+$ index.php?menu=account&sel=swap [L]
+RewriteRule ^account/store(/?)+$ index.php?menu=account&sel=store [L]
+RewriteRule ^account/referals(/?)+$ index.php?menu=account&sel=referals [L]
+RewriteRule ^account/farm(/?)+$ index.php?menu=account&sel=farm [L]
+RewriteRule ^competition(/?)+$ index.php?menu=competition [L]
+RewriteRule ^competition/list(/?)+$ index.php?menu=competition&list [L]
+RewriteRule ^account/dohod(/?)+$ index.php?menu=account&sel=dohod [L]
+RewriteRule ^account/auc(/?)+$ index.php?menu=account&sel=auc [L]
+RewriteRule ^account/knb(/?)+$ index.php?menu=account&sel=knb [L]
+RewriteRule ^account/promo(/?)+$ index.php?menu=account&sel=promo [L]
+RewriteRule ^account/insertf(/?)+$ index.php?menu=account&sel=insertf [L]
+RewriteRule ^account/gono4ki(/?)+$ index.php?menu=account&sel=gono4ki [L]
+RewriteRule ^account/rul(/?)+$ index.php?menu=account&sel=rul [L]
+RewriteRule ^account/jobs(/?)+$ index.php?menu=account&sel=jobs [L]
+RewriteRule ^account/jobs/list(/?)+$ index.php?menu=account&sel=jobs&alljobs [L]
+RewriteRule ^account/jobs/add(/?)+$ index.php?menu=account&sel=jobs&add [L]
+RewriteRule ^account/jobs/save(/?)+$ index.php?menu=account&sel=jobs&add&save [L]
+RewriteRule ^account/jobs/stat(/?)+$ index.php?menu=account&sel=jobs&statuse [L]
+RewriteRule ^account/jobs/info(/?)+$ index.php?menu=account&sel=jobs&info [L]
+RewriteRule ^account/jobs/my(/?)+$ index.php?menu=account&sel=jobs&mylist [L]
+RewriteRule ^account/jobs/show/([0-9]+)(/?)+$ index.php?menu=account&sel=jobs&show=$1 [L]
+		#Колесо фортуны
+		RewriteRule ^account/wheel(/?)+$ index.php?menu=account&sel=wheel [L]
+RewriteRule ^account/exit(/?)+$ index.php?menu=account&sel=exit [L]
+
+
+RewriteRule ^account(/?)+$ index.php?menu=account [L]
+AddDefaultCharset cp1251
+AddType 'text/html; charset=cp1251' .html .htm .shtml
